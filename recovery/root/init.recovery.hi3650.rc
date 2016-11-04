@@ -1,0 +1,21 @@
+import init.hi3650.power.rc
+
+on init
+    mkdir /cust
+
+    start teecd
+    start volisnotd
+    
+on boot
+    chown system system /sys/devices/ff200000.hisi_usb/plugusb
+    chmod 0660 /sys/devices/ff200000.hisi_usb/plugusb
+
+service teecd /sbin/teecd
+    user root
+    group root
+    disabled
+
+service volisnotd /sbin/volisnotd -m
+    user root
+    group root
+    disabled
