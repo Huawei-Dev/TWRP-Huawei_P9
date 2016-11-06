@@ -63,9 +63,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/huawei/eva
 TARGET_KERNEL_CONFIG := cm_hi3650_defconfig
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Partitions
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -87,9 +84,18 @@ TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "/emmc"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "/sdcard"
 
 TW_NO_USB_STORAGE := true
 TW_EXCLUDE_SUPERSU := true
+
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_FS_TYPE := "f2fs"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/hi_mci.0/by-name/userdata"
+TW_CRYPTO_MNT_POINT := "/data"
 
 TW_INPUT_BLACKLIST := "accelerometer"
 
